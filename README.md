@@ -27,6 +27,7 @@
     * @babel/preset-env
     * @babel/preset-react
     * webpack-dev-server
+    * html-webpack-plugin
     * node-sass（windows用户安装不顺利的可以换国内的npm源）
     * sass-loader
     * css-loader
