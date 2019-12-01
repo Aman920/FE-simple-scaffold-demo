@@ -1,0 +1,36 @@
+.react-transition-box {
+  width: 500px;
+  margin: 0 auto;
+  padding: 5px;
+  text-align: center;
+  background-color: chocolate;
+}
+li {
+  width: 50px;
+  height: 20px;
+  margin-bottom: 10px;
+  border: 2px solid #03796f;
+  background-color: bisque;
+}
+.example-enter, .example-appear {
+  opacity: 0;
+}
+.example-enter-active, .example-appear-active {
+  opacity: 1;
+  transition: opacity 2s;
+}
+.example-enter-done {
+  opacity: 1;
+}
+.example-exit {
+  opacity: 1;
+}
+.example-exit-active {
+  opacity: 0;
+  transition: opacity 2s;
+}
+.example-exit-done {
+  opacity: 0;
+}
+
+
