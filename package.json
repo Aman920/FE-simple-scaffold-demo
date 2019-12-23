@@ -1,17 +1,26 @@
 {
-  "name": "simple-scaffold-demo",
+  "name": "react-ssr",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "pack": "cross-env NODE_ENV=dev webpack --config webpack.config.js",
-    "dev": "cross-env NODE_ENV=dev webpack-dev-server --config webpack.config.js --watch"
+    "ssr-dev": "./node_modules/.bin/npm-run-all --parallel ssr:**",
+    "ssr:pack": "webpack --config webpack.server.js --watch",
+    "ssr:run": "./node_modules/.bin/nodemon --watch build --exec node build/server.bundle.js",
+    "ssr:csr-pack": "webpack --config webpack.client.js --watch",
+    "csr-dev": "cross-env NODE_ENV=dev webpack-dev-server --config webpack.client.js --watch"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.19.0",
+    "express": "^4.16.3",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-redux": "^7.1.3",
+    "react-router-dom": "^5.1.2",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
@@ -19,14 +28,13 @@
     "@babel/preset-react": "^7.7.4",
     "babel-loader": "^8.0.6",
     "cross-env": "^6.0.3",
-    "css-loader": "^3.2.0",
     "html-webpack-plugin": "^3.2.0",
-    "node-sass": "^4.13.0",
-    "sass-loader": "^8.0.0",
-    "style-loader": "^1.0.1",
+    "nodemon": "^2.0.2",
+    "npm-run-all": "^4.1.5",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2",
     "webpack-node-externals": "^1.7.2"
   }
 }
