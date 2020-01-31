@@ -9,10 +9,8 @@ const changeList = (data) => {
   };
 }
 
-export const getHomeList = () => {
-  return (dispatch) => {
-    return axios.get('http://balabala').then(res => dispatch(changeList(MockLsit))).catch(e => {
-      dispatch(changeList(MockLsit));
-    });
-  }
+export const getHomeList = (dispatch) => {
+  return axios.get('http://balabala').then(res => dispatch(changeList(MockLsit))).catch(e => {
+    dispatch(changeList(MockLsit));
+  });
 }

@@ -30,7 +30,7 @@ class Home extends Component {
 
 // ssr中对外暴露的数据获取方法
 Home.loadData = (store) => {
- return store.dispatch(getHomeList())
+ return store.dispatch(getHomeList)
 }
 
 const mapStateToProps = (state) => {
@@ -42,7 +42,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getList: () => {
-      dispatch(getHomeList())
+      dispatch(getHomeList)
     }
   };
 }
