@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { CHANGE_HOME_LIST } from './constants';
+import { MockLsit } from '../../../constants';
 
 const changeList = (data) => {
   return {
@@ -10,9 +11,8 @@ const changeList = (data) => {
 
 export const getHomeList = () => {
   return (dispatch) => {
-    // 自行补充接口
-    axios.get('xxxx').then(res => console.log(res)).catch(e => {
-      dispatch(changeList(mockList));
+    return axios.get('http://balabala').then(res => dispatch(changeList(MockLsit))).catch(e => {
+      dispatch(changeList(MockLsit));
     });
   }
 }

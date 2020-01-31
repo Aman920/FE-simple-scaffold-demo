@@ -5,23 +5,37 @@ import { getHomeList } from './store/actions';
 
 class Home extends Component {
   componentDidMount () {
-    this.props.getList();
+    if (this.props.userList.length <= 0) {
+      this.props.getList();
+    }
   }
 
   render () {
+    const {userList} = this.props;
     return (
       <div>
         <Header />
-        <h3>hello {this.props.name}</h3>
+        {
+          userList.map((val, key) => {
+            return (
+              <p key={key}>{val.name}, {val.desc}</p>
+            );
+          })
+        }
         <button onClick={() => alert(111)}>click me</button>
       </div>
     );
   }
 }
 
+// ssr中对外暴露的数据获取方法
+Home.loadData = (store) => {
+ return store.dispatch(getHomeList())
+}
+
 const mapStateToProps = (state) => {
   return {
-    name: state.home.name
+    userList: state.home.userList
   };
 }
 

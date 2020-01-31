@@ -1,8 +1,7 @@
 import { CHANGE_HOME_LIST } from './constants';
 
 const defaultState = {
-  name: 'Aman',
-  newsList: []
+  userList: []
 }
 
 export default (state = defaultState, action) => {
@@ -10,7 +9,7 @@ export default (state = defaultState, action) => {
     case CHANGE_HOME_LIST:
       return {
         ...state,
-        newsList: action.list
+        userList: action.list
       };
     default:
       return state;

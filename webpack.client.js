@@ -1,7 +1,6 @@
 const path = require('path');
 const baseConfig = require('./webpack.base');
 const webpackMerge = require('webpack-merge');
-const HTMLPlugin = require('html-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'dev';
 
@@ -12,27 +11,9 @@ const clientConfig = {
   mode: 'development',
   entry: './src/client/index.js',
   output: {
-    filename: 'client.bundle.js',
+    filename: 'index.js',
     path: path.resolve(__dirname, 'public')
-  },
-  plugins: [
-    new HTMLPlugin({
-      title: 'quick app',
-      template: path.resolve(__dirname + '/index.html')
-    })
-  ]
-};
-
-if (isDev) {
-  clientConfig.devServer = {
-    host: '0.0.0.0',
-    port: '8086',
-    contentBase: path.resolve(__dirname, 'build'),
-    hot: true,
-    overlay: {
-      errors: true
-    }
   }
-}
+};
 
 module.exports = webpackMerge(baseConfig, clientConfig);

@@ -1,29 +1,36 @@
 import React from 'react';
-import { StaticRouter } from 'react-router-dom';
+import { StaticRouter, Route } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 
-import getStore from '../store';
-import Router from '../Router';
 
-export const render = (req) => {
-	
-  const content = renderToString(
-		<Provider store={getStore()}>
+// render方法专注于拼接content
+export const render = (req, store, routes) => {
+	const content = renderToString(
+		<Provider store={store}>
 			<StaticRouter location={req.path} context={{}}>
-				<Router />
+				<div>
+					{
+						routes.map(route => {
+							return <Route {...route} />
+						})
+					}
+				</div>
 			</StaticRouter>
 		</Provider>
 	);
-  return (
-  	`<html>
+	return (
+		`<html>
 			<head>
 				<title>hello</title>
 			</head>
 			<body>
 			<div id="root">${content}</div>
-			<script src="/client.bundle.js"></script>
+			<script>window.context={
+				state: ${JSON.stringify(store.getState())}
+			}</script>
+			<script src="/index.js"></script>
 			</body>
-  	</html>`
-  );
+		</html>`
+	);
 }
