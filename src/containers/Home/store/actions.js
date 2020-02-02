@@ -10,7 +10,8 @@ const changeList = (data) => {
 }
 
 export const getHomeList = (dispatch) => {
-  return axios.get('http://balabala').then(res => dispatch(changeList(MockLsit))).catch(e => {
+  // 因为这里的接口是瞎填的，所以实际情况还要根据客户端还是server端针对的设置请求url
+  return axios.get('/api/balabala').then(res => dispatch(changeList(MockLsit))).catch(e => {
     dispatch(changeList(MockLsit));
   });
 }

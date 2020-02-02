@@ -1,4 +1,5 @@
 import express from 'express';
+import proxy from 'express-http-proxy';
 import { matchRoutes } from 'react-router-config';
 import { render } from './util';
 import { getStore } from '../store';
@@ -6,6 +7,17 @@ import routes from '../routes';
 const app = express();
 
 app.use(express.static('public'));
+
+app.use('/api', proxy('http://balabala', {
+	// 加工处理返回最后的请求url
+	proxyReqPathResolver: function (req) {
+		// var parts = req.url.split('?');
+		// var queryString = parts[1];
+		// var updatedPath = parts[0].replace(/test/, 'tent');
+		// return updatedPath + (queryString ? '?' + queryString : '');
+		return req.url;
+	}
+}));
 
 app.get('*', function (req, res) {
   const store = getStore();
