@@ -1,32 +1,24 @@
 {
-  "name": "simple-scaffold-demo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "pack": "cross-env NODE_ENV=dev webpack --config webpack.config.js",
-    "dev": "cross-env NODE_ENV=dev webpack-dev-server --config webpack.config.js --watch"
-  },
-  "author": "",
-  "license": "ISC",
+  "name": "my-app-ts",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "gh-qqnews-utils": "0.0.15",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts-ts": "3.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.4",
-    "@babel/preset-env": "^7.7.4",
-    "@babel/preset-react": "^7.7.4",
-    "babel-loader": "^8.0.6",
-    "cross-env": "^6.0.3",
-    "css-loader": "^3.2.0",
-    "html-webpack-plugin": "^3.2.0",
-    "node-sass": "^4.13.0",
-    "sass-loader": "^8.0.0",
-    "style-loader": "^1.0.1",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0",
-    "webpack-node-externals": "^1.7.2"
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.12.5",
+    "@types/react": "^17.0.11",
+    "@types/react-dom": "^17.0.8",
+    "typescript": "^4.3.4"
   }
 }
